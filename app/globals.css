@@ -13,8 +13,8 @@ html {
 }
 
 body {
-  background-color: #070b16;
-  color: #f8fafc;
+  background-color: #F5F5F5;
+  color: #1F2937;
   font-family: 'Inter', sans-serif;
 }
 
@@ -22,35 +22,36 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
   letter-spacing: -0.02em;
+  color: #1F2937;
 }
 
 /* Glassmorphism */
 .glass {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(229, 231, 235, 0.5);
 }
 
 .glass-hover {
-  @apply glass transition-all duration-300 hover:bg-opacity-10 hover:border-accent-cyan;
+  @apply glass transition-all duration-300 hover:bg-white hover:border-gray-300;
 }
 
 /* Glow effects */
 .glow-blue {
-  box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 0 30px rgba(31, 41, 55, 0.2);
 }
 
-.glow-cyan {
-  box-shadow: 0 0 30px rgba(0, 229, 255, 0.3);
+.glow-grey {
+  box-shadow: 0 0 30px rgba(107, 114, 128, 0.2);
 }
 
-.glow-purple {
-  box-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
+.glow-dark {
+  box-shadow: 0 0 30px rgba(31, 41, 55, 0.3);
 }
 
 /* Scroll indicators */
 .scroll-down {
-  @apply animate-bounce text-accent-cyan;
+  @apply animate-bounce text-accent-grey;
 }
 
 /* Smooth transitions */
@@ -64,14 +65,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background: #070b16;
+  background: #F5F5F5;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3b82f6;
+  background: #6B7280;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #8b5cf6;
+  background: #1F2937;
 }

@@ -12,14 +12,14 @@ export default function Footer() {
   ]
 
   const socials = [
-    { icon: Twitter, href: '#' },
-    { icon: Linkedin, href: '#' },
-    { icon: Github, href: '#' },
-    { icon: Mail, href: '#' },
+    { icon: Twitter, href: 'https://twitter.com' },
+    { icon: Linkedin, href: 'https://linkedin.com' },
+    { icon: Github, href: 'https://github.com' },
+    { icon: Mail, href: 'mailto:contact@loopmarketing.com' },
   ]
 
   return (
-    <footer className="bg-secondary border-t border-accent-blue/10 py-12">
+    <footer className="bg-secondary border-t border-accent-lightgrey py-12">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
@@ -28,7 +28,7 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <div className="text-3xl font-grotesk font-bold bg-gradient-to-r from-accent-blue to-accent-cyan bg-clip-text text-transparent">
+            <div className="text-3xl font-grotesk font-bold bg-gradient-to-r from-accent-darkgrey to-accent-grey bg-clip-text text-transparent">
               LOOP
             </div>
             <p className="text-text-muted text-sm mt-4">Growth systems for modern brands.</p>
@@ -47,7 +47,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-text-muted hover:text-accent-cyan transition-colors"
+                    className="text-text-muted hover:text-text-primary transition-colors"
                   >
                     {link.label}
                   </a>
@@ -71,7 +71,9 @@ export default function Footer() {
                   <a
                     key={index}
                     href={social.href}
-                    className="w-10 h-10 rounded-full glass flex items-center justify-center text-accent-cyan hover:text-accent-blue hover:border-accent-blue transition-all border border-accent-cyan/30"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full glass flex items-center justify-center text-text-primary hover:text-white hover:bg-accent-darkgrey hover:border-accent-darkgrey transition-all border border-accent-lightgrey"
                   >
                     <Icon size={18} />
                   </a>
@@ -82,13 +84,13 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-accent-blue/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-text-muted text-sm">
+        <div className="border-t border-accent-lightgrey pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-text-muted text-sm">
           <p>&copy; 2024 LOOP MARKETING. All rights reserved.</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-accent-cyan transition-colors">
+            <a href="#" className="hover:text-text-primary transition-colors">
               Privacy
             </a>
-            <a href="#" className="hover:text-accent-cyan transition-colors">
+            <a href="#" className="hover:text-text-primary transition-colors">
               Terms
             </a>
           </div>

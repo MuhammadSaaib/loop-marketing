@@ -65,9 +65,9 @@ export default function Services() {
   }
 
   return (
-    <section className="py-20 md:py-32 px-4 bg-primary relative">
+    <section id="services" className="py-20 md:py-32 px-4 bg-primary relative">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-accent-blue/5 to-transparent opacity-30" />
+      <div className="absolute inset-0 bg-gradient-to-b from-accent-lightgrey/20 to-transparent opacity-30" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section header */}
@@ -78,10 +78,10 @@ export default function Services() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-5xl md:text-7xl font-grotesk font-bold mb-4 tracking-tighter">
+          <h2 className="text-5xl md:text-7xl font-grotesk font-bold mb-4 tracking-tighter text-text-primary">
             WHAT WE
             <br />
-            <span className="bg-gradient-to-r from-accent-blue to-accent-cyan bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-accent-darkgrey to-accent-grey bg-clip-text text-transparent">
               BUILD
             </span>
           </h2>
@@ -107,14 +107,14 @@ export default function Services() {
               <motion.div
                 className={`h-64 rounded-2xl glass p-8 cursor-pointer transition-all duration-300 flex flex-col justify-between group ${
                   expandedId === service.id
-                    ? 'ring-2 ring-accent-cyan bg-accent-cyan/10 glow-cyan'
-                    : 'hover:bg-accent-cyan/5'
+                    ? 'ring-2 ring-text-primary bg-white glow-dark'
+                    : 'hover:bg-white'
                 }`}
                 whileHover={{ y: -8 }}
               >
                 <div>
-                  <span className="text-sm font-grotesk text-accent-blue font-bold">{service.id}</span>
-                  <h3 className="text-3xl font-grotesk font-bold mt-4 text-text-primary group-hover:text-accent-cyan transition-colors">
+                  <span className="text-sm font-grotesk text-accent-grey font-bold">{service.id}</span>
+                  <h3 className="text-3xl font-grotesk font-bold mt-4 text-text-primary group-hover:text-accent-darkgrey transition-colors">
                     {service.title}
                   </h3>
                 </div>

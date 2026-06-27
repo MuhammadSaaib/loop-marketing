@@ -16,7 +16,7 @@ export default function Process() {
   const [expandedIndex, setExpandedIndex] = useState(0)
 
   return (
-    <section className="py-20 md:py-32 px-4 bg-primary relative">
+    <section id="process" className="py-20 md:py-32 px-4 bg-primary relative">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
@@ -26,10 +26,10 @@ export default function Process() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-5xl md:text-7xl font-grotesk font-bold tracking-tighter mb-4">
+          <h2 className="text-5xl md:text-7xl font-grotesk font-bold tracking-tighter mb-4 text-text-primary">
             OUR
             <br />
-            <span className="bg-gradient-to-r from-accent-purple to-accent-pink bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-accent-grey to-accent-darkgrey bg-clip-text text-transparent">
               LOOP
             </span>
           </h2>
@@ -49,15 +49,15 @@ export default function Process() {
             >
               {/* Connector line */}
               {index < stages.length - 1 && (
-                <div className="absolute left-8 top-20 w-1 h-12 bg-gradient-to-b from-accent-blue to-transparent opacity-20" />
+                <div className="absolute left-8 top-20 w-1 h-12 bg-gradient-to-b from-accent-grey to-transparent opacity-20" />
               )}
 
               <motion.button
                 onClick={() => setExpandedIndex(expandedIndex === index ? -1 : index)}
                 className={`w-full text-left p-6 rounded-xl transition-all duration-300 group ${
                   expandedIndex === index
-                    ? 'glass bg-accent-blue/10 border border-accent-blue/50 glow-blue'
-                    : 'glass hover:bg-accent-blue/5 border border-accent-blue/20'
+                    ? 'glass bg-white border border-text-primary glow-dark'
+                    : 'glass hover:bg-white border border-accent-lightgrey'
                 }`}
                 whileHover={{ x: 8 }}
               >
@@ -66,8 +66,8 @@ export default function Process() {
                   <div className="flex-shrink-0">
                     <div className={`w-16 h-16 rounded-full flex items-center justify-center font-grotesk font-bold text-lg transition-all ${
                       expandedIndex === index
-                        ? 'bg-accent-blue text-primary'
-                        : 'bg-accent-blue/20 text-accent-blue'
+                        ? 'bg-text-primary text-white'
+                        : 'bg-accent-lightgrey text-text-primary'
                     }`}>
                       {index + 1}
                     </div>
@@ -75,7 +75,7 @@ export default function Process() {
 
                   {/* Content */}
                   <div className="flex-1">
-                    <h3 className="text-2xl font-grotesk font-bold text-text-primary mb-2 group-hover:text-accent-cyan transition-colors">
+                    <h3 className="text-2xl font-grotesk font-bold text-text-primary mb-2 group-hover:text-accent-darkgrey transition-colors">
                       {stage.title}
                     </h3>
                     <motion.p
@@ -91,7 +91,7 @@ export default function Process() {
                   </div>
 
                   {/* Arrow */}
-                  <div className="text-accent-blue text-2xl group-hover:translate-x-2 transition-transform">
+                  <div className="text-text-primary text-2xl group-hover:translate-x-2 transition-transform">
                     {index < stages.length - 1 ? '↓' : '✓'}
                   </div>
                 </div>

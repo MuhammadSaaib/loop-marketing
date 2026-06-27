@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, useTrail } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
 const stats = [
@@ -39,16 +39,11 @@ function AnimatedCounter({ target, suffix }: { target: number; suffix: string })
 }
 
 export default function About() {
-  const trail = useTrail(stats.length, {
-    from: { opacity: 0, x: -20 },
-    to: { opacity: 1, x: 0 },
-  })
-
   return (
-    <section className="py-20 md:py-32 px-4 bg-secondary relative overflow-hidden">
+    <section id="about" className="py-20 md:py-32 px-4 bg-secondary relative overflow-hidden">
       {/* Background elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-accent-purple opacity-5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent-blue opacity-5 rounded-full blur-3xl" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-accent-lightgrey opacity-30 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent-grey opacity-10 rounded-full blur-3xl" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -59,10 +54,10 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <h2 className="text-5xl md:text-6xl font-grotesk font-bold mb-6 tracking-tighter">
+            <h2 className="text-5xl md:text-6xl font-grotesk font-bold mb-6 tracking-tighter text-text-primary">
               SMALL TEAM.
               <br />
-              <span className="bg-gradient-to-r from-accent-blue to-accent-cyan bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-accent-darkgrey to-accent-grey bg-clip-text text-transparent">
                 GLOBAL
               </span>
               <br />
@@ -80,19 +75,22 @@ export default function About() {
 
           {/* Right stats */}
           <motion.div className="grid grid-cols-2 gap-6">
-            {trail.map((style, index) => (
+            {stats.map((stat, index) => (
               <motion.div
                 key={index}
-                style={style}
-                className="glass rounded-2xl p-8 border border-accent-cyan/20 hover:border-accent-cyan/50 transition-all"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="glass rounded-2xl p-8 border border-accent-lightgrey hover:border-text-primary transition-all"
               >
-                <div className="text-4xl md:text-5xl font-grotesk font-bold text-accent-cyan mb-2">
+                <div className="text-4xl md:text-5xl font-grotesk font-bold text-accent-darkgrey mb-2">
                   <AnimatedCounter
-                    target={stats[index].number}
-                    suffix={stats[index].suffix}
+                    target={stat.number}
+                    suffix={stat.suffix}
                   />
                 </div>
-                <p className="text-text-muted text-sm">{stats[index].label}</p>
+                <p className="text-text-muted text-sm">{stat.label}</p>
               </motion.div>
             ))}
           </motion.div>

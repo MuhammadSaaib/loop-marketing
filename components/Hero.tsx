@@ -33,13 +33,22 @@ export default function Hero() {
     },
   }
 
+  const scrollToServices = () => {
+    const servicesSection = document.getElementById('services')
+    servicesSection?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  const openDiscoveryCall = () => {
+    window.location.href = 'mailto:contact@loopmarketing.com?subject=Book Discovery Call'
+  }
+
   return (
     <div className="relative w-full h-screen overflow-hidden bg-primary">
       <ParticleBackground />
 
       {/* Gradient background with parallax */}
       <div
-        className="absolute inset-0 bg-gradient-hero opacity-20"
+        className="absolute inset-0 bg-gradient-hero opacity-30"
         style={{
           transform: `translateY(${scrollY * 0.5}px)`,
         }}
@@ -55,8 +64,8 @@ export default function Hero() {
         >
           {/* Main heading */}
           <motion.div variants={itemVariants}>
-            <h1 className="text-7xl md:text-9xl font-grotesk font-bold mb-6 tracking-tighter">
-              <span className="bg-gradient-to-r from-accent-blue via-accent-purple to-accent-cyan bg-clip-text text-transparent">
+            <h1 className="text-7xl md:text-9xl font-grotesk font-bold mb-6 tracking-tighter text-text-primary">
+              <span className="bg-gradient-to-r from-accent-darkgrey via-accent-grey to-accent-darkgrey bg-clip-text text-transparent">
                 LOOP
               </span>
               <br />
@@ -80,7 +89,7 @@ export default function Hero() {
             {['SEO', 'PAID ADS', 'VIDEO', 'DESIGN', 'CONTENT'].map((service) => (
               <span
                 key={service}
-                className="px-4 py-2 rounded-full glass text-sm font-medium text-accent-cyan border border-accent-cyan/30 hover:border-accent-cyan transition-all"
+                className="px-4 py-2 rounded-full glass text-sm font-medium text-text-primary border border-accent-grey/50 hover:border-text-primary transition-all"
               >
                 {service}
               </span>
@@ -92,10 +101,16 @@ export default function Hero() {
             variants={itemVariants}
             className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
           >
-            <button className="px-8 py-4 rounded-lg bg-gradient-cta text-white font-grotesk font-bold hover:shadow-lg hover:shadow-accent-blue/50 transition-all duration-300 glow-blue">
+            <button 
+              onClick={scrollToServices}
+              className="px-8 py-4 rounded-lg bg-gradient-cta text-white font-grotesk font-bold hover:shadow-lg hover:shadow-accent-darkgrey/50 transition-all duration-300 glow-dark"
+            >
               Explore Services
             </button>
-            <button className="px-8 py-4 rounded-lg glass border border-accent-cyan text-accent-cyan font-grotesk font-bold hover:bg-accent-cyan/10 transition-all duration-300">
+            <button 
+              onClick={openDiscoveryCall}
+              className="px-8 py-4 rounded-lg glass border border-text-primary text-text-primary font-grotesk font-bold hover:bg-white transition-all duration-300"
+            >
               Book Discovery Call
             </button>
           </motion.div>
@@ -103,7 +118,7 @@ export default function Hero() {
           {/* Scroll indicator */}
           <motion.div
             variants={itemVariants}
-            className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-accent-cyan animate-bounce"
+            className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-text-muted animate-bounce"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
