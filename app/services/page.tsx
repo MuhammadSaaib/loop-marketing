@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
+import Footer from '@/components/Footer'
 
 const services = [
   {
@@ -75,70 +76,73 @@ const services = [
     id: 12,
     title: 'Public Relations (PR)',
     description: 'Build and protect your brand\'s reputation through strategic public relations. We manage media outreach, press releases, brand communications, and reputation management to increase credibility and strengthen public perception.',
-    icon: '📣',
+    icon: '📢',
   },
 ]
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen bg-primary py-20 px-4">
-      <div className="max-w-6xl mx-auto">
-        <motion.div
-          className="mb-12"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-        >
-          <Link href="/" className="flex items-center gap-2 text-text-primary hover:text-accent-darkgrey transition-colors mb-6">
-            <ArrowLeft size={20} />
-            Back to Home
-          </Link>
-          
-          <h1 className="text-6xl md:text-7xl font-grotesk font-bold mb-4 tracking-tighter text-text-primary">
-            OUR
-            <br />
-            <span className="bg-gradient-to-r from-accent-darkgrey to-accent-grey bg-clip-text text-transparent">
-              SERVICES
-            </span>
-          </h1>
-          <p className="text-xl text-text-muted">Comprehensive digital marketing solutions tailored to your business needs.</p>
-        </motion.div>
+    <>
+      <div className="min-h-screen bg-primary py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            className="mb-12"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            <Link href="/" className="flex items-center gap-2 text-text-primary hover:text-accent-darkgrey transition-colors mb-6">
+              <ArrowLeft size={20} />
+              Back to Home
+            </Link>
+            
+            <h1 className="text-6xl md:text-7xl font-grotesk font-bold mb-4 tracking-tighter text-text-primary">
+              OUR
+              <br />
+              <span className="bg-gradient-to-r from-accent-darkgrey to-accent-grey bg-clip-text text-transparent">
+                SERVICES
+              </span>
+            </h1>
+            <p className="text-xl text-text-muted">Comprehensive digital marketing solutions tailored to your business needs.</p>
+          </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -8 }}
-              className="glass rounded-2xl p-8 border border-accent-lightgrey hover:border-text-primary transition-all group"
-            >
-              <div className="text-5xl mb-4">{service.icon}</div>
-              <h3 className="text-2xl font-grotesk font-bold text-text-primary mb-4 group-hover:text-accent-darkgrey transition-colors">
-                {service.title}
-              </h3>
-              <p className="text-text-muted leading-relaxed">
-                {service.description}
-              </p>
-            </motion.div>
-          ))}
+          <div className="grid md:grid-cols-2 gap-8">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ y: -8 }}
+                className="glass rounded-2xl p-8 border border-accent-lightgrey hover:border-text-primary transition-all group"
+              >
+                <div className="text-5xl mb-4">{service.icon}</div>
+                <h3 className="text-2xl font-grotesk font-bold text-text-primary mb-4 group-hover:text-accent-darkgrey transition-colors">
+                  {service.title}
+                </h3>
+                <p className="text-text-muted leading-relaxed">
+                  {service.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            className="mt-16 text-center"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-text-muted mb-6">Ready to get started?</p>
+            <Link href="/contact">
+              <button className="px-8 py-4 rounded-lg bg-gradient-cta text-white font-grotesk font-bold hover:shadow-lg hover:shadow-accent-darkgrey/50 transition-all duration-300 glow-dark">
+                Contact Us
+              </button>
+            </Link>
+          </motion.div>
         </div>
-
-        <motion.div
-          className="mt-16 text-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-        >
-          <p className="text-text-muted mb-6">Ready to get started?</p>
-          <Link href="/contact">
-            <button className="px-8 py-4 rounded-lg bg-gradient-cta text-white font-grotesk font-bold hover:shadow-lg hover:shadow-accent-darkgrey/50 transition-all duration-300 glow-dark">
-              Contact Us
-            </button>
-          </Link>
-        </motion.div>
       </div>
-    </div>
+      <Footer />
+    </>
   )
 }
