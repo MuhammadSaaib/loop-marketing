@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import ParticleBackground from './ParticleBackground'
+import Link from 'next/link'
 
 export default function Hero() {
   const [scrollY, setScrollY] = useState(0)
@@ -33,20 +34,10 @@ export default function Hero() {
     },
   }
 
-  const scrollToServices = () => {
-    const servicesSection = document.getElementById('services')
-    servicesSection?.scrollIntoView({ behavior: 'smooth' })
-  }
-
-  const openDiscoveryCall = () => {
-    window.location.href = 'mailto:contact@loopmarketing.com?subject=Book Discovery Call'
-  }
-
   return (
     <div className="relative w-full h-screen overflow-hidden bg-primary">
       <ParticleBackground />
 
-      {/* Gradient background with parallax */}
       <div
         className="absolute inset-0 bg-gradient-hero opacity-30"
         style={{
@@ -54,7 +45,6 @@ export default function Hero() {
         }}
       />
 
-      {/* Content */}
       <div className="relative z-10 h-full flex flex-col items-center justify-center px-4">
         <motion.div
           className="text-center max-w-6xl"
@@ -62,7 +52,6 @@ export default function Hero() {
           initial="hidden"
           animate="visible"
         >
-          {/* Main heading */}
           <motion.div variants={itemVariants}>
             <h1 className="text-7xl md:text-9xl font-grotesk font-bold mb-6 tracking-tighter text-text-primary">
               <span className="bg-gradient-to-r from-accent-darkgrey via-accent-grey to-accent-darkgrey bg-clip-text text-transparent">
@@ -73,7 +62,6 @@ export default function Hero() {
             </h1>
           </motion.div>
 
-          {/* Subheading */}
           <motion.p
             variants={itemVariants}
             className="text-xl md:text-2xl text-text-muted mb-12 max-w-3xl mx-auto leading-relaxed"
@@ -81,12 +69,11 @@ export default function Hero() {
             Growth systems designed for businesses that want more than impressions.
           </motion.p>
 
-          {/* Service labels */}
           <motion.div
             variants={itemVariants}
             className="flex flex-wrap justify-center gap-3 mb-12"
           >
-            {['SEO', 'PAID ADS', 'VIDEO', 'DESIGN', 'CONTENT'].map((service) => (
+            {['SEO', 'SEM', 'BRANDING', 'VIDEO', 'ADS'].map((service) => (
               <span
                 key={service}
                 className="px-4 py-2 rounded-full glass text-sm font-medium text-text-primary border border-accent-grey/50 hover:border-text-primary transition-all"
@@ -96,26 +83,22 @@ export default function Hero() {
             ))}
           </motion.div>
 
-          {/* CTA Buttons */}
           <motion.div
             variants={itemVariants}
             className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
           >
-            <button 
-              onClick={scrollToServices}
-              className="px-8 py-4 rounded-lg bg-gradient-cta text-white font-grotesk font-bold hover:shadow-lg hover:shadow-accent-darkgrey/50 transition-all duration-300 glow-dark"
-            >
-              Explore Services
-            </button>
-            <button 
-              onClick={openDiscoveryCall}
-              className="px-8 py-4 rounded-lg glass border border-text-primary text-text-primary font-grotesk font-bold hover:bg-white transition-all duration-300"
-            >
-              Book Discovery Call
-            </button>
+            <Link href="/services">
+              <button className="px-8 py-4 rounded-lg bg-gradient-cta text-white font-grotesk font-bold hover:shadow-lg hover:shadow-accent-darkgrey/50 transition-all duration-300 glow-dark">
+                Explore Services
+              </button>
+            </Link>
+            <Link href="/projects">
+              <button className="px-8 py-4 rounded-lg glass border border-text-primary text-text-primary font-grotesk font-bold hover:bg-white transition-all duration-300">
+                View Projects
+              </button>
+            </Link>
           </motion.div>
 
-          {/* Scroll indicator */}
           <motion.div
             variants={itemVariants}
             className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-text-muted animate-bounce"
