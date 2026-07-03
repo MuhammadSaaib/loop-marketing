@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@100;300;400;500;600;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -13,66 +15,130 @@ html {
 }
 
 body {
-  background-color: #F5F5F5;
-  color: #1F2937;
+  background-color: #1a1819;
+  color: #ffffff;
   font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.5px;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: #1F2937;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  color: #ffffff;
 }
 
-/* Glassmorphism */
+p {
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* Minimalistic Glass */
 .glass {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(229, 231, 235, 0.5);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 215, 0, 0.1);
 }
 
 .glass-hover {
-  @apply glass transition-all duration-300 hover:bg-white hover:border-gray-300;
+  @apply glass transition-all duration-300 hover:border-accent-yellow hover:bg-opacity-5;
 }
 
-/* Glow effects */
-.glow-blue {
-  box-shadow: 0 0 30px rgba(31, 41, 55, 0.2);
+/* Subtle Glow */
+.glow-yellow {
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
 }
 
-.glow-grey {
-  box-shadow: 0 0 30px rgba(107, 114, 128, 0.2);
+.glow-white {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
 }
 
-.glow-dark {
-  box-shadow: 0 0 30px rgba(31, 41, 55, 0.3);
+/* Minimalistic Effects */
+.border-accent {
+  border: 1px solid rgba(255, 215, 0, 0.2);
 }
 
-/* Scroll indicators */
+.border-accent-hover {
+  @apply border-accent transition-all duration-300 hover:border-accent-yellow;
+}
+
+/* Text Accents */
+.text-accent {
+  color: #FFD700;
+}
+
+.text-accent-hover {
+  @apply text-white transition-all duration-300 hover:text-accent-yellow;
+}
+
+/* Scroll Indicator */
 .scroll-down {
-  @apply animate-bounce text-accent-grey;
+  @apply animate-bounce text-accent-yellow;
 }
 
-/* Smooth transitions */
+/* Smooth Transitions */
 .smooth-transition {
   @apply transition-all duration-500 ease-out;
 }
 
+/* Button Styles */
+button {
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #F5F5F5;
+  background: #1a1819;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #6B7280;
-  border-radius: 5px;
+  background: #FFD700;
+  border-radius: 4px;
+  opacity: 0.3;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #1F2937;
+  opacity: 0.6;
+}
+
+/* Link Styles */
+a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+a:hover {
+  color: #FFD700;
+  border-bottom-color: #FFD700;
+}
+
+/* Section Spacing */
+section {
+  padding: 6rem 2rem;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 4rem 1.5rem;
+  }
+}
+
+/* Minimalistic Divider */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+  margin: 4rem 0;
 }

@@ -39,58 +39,74 @@ function AnimatedCounter({ target, suffix }: { target: number; suffix: string })
 }
 
 export default function About() {
-  return (
-    <section id="about" className="py-20 md:py-32 px-4 bg-secondary relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-accent-lightgrey opacity-30 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent-grey opacity-10 rounded-full blur-3xl" />
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  }
 
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8 },
+    },
+  }
+
+  return (
+    <section className="py-24 md:py-32 px-4 bg-primary relative overflow-hidden">
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-16 items-center">
           {/* Left content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.8 }}
           >
-            <h2 className="text-5xl md:text-6xl font-grotesk font-bold mb-6 tracking-tighter text-text-primary">
+            <h2 className="text-5xl md:text-6xl font-grotesk font-light mb-8 tracking-tight">
               SMALL TEAM.
               <br />
-              <span className="bg-gradient-to-r from-accent-darkgrey to-accent-grey bg-clip-text text-transparent">
-                GLOBAL
-              </span>
+              <span className="text-accent-yellow">GLOBAL</span>
               <br />
               AMBITION.
             </h2>
 
-            <p className="text-lg text-text-muted leading-relaxed mb-8">
+            <p className="text-lg text-text-muted leading-relaxed mb-6 font-light">
               Loop Marketing was built on execution. Over four years, we refined systems that combine creativity, performance, and long-term growth.
             </p>
 
-            <p className="text-lg text-text-muted leading-relaxed">
+            <p className="text-lg text-text-muted leading-relaxed font-light">
               Today we work selectively and aim to help brands scale globally.
             </p>
           </motion.div>
 
           {/* Right stats */}
-          <motion.div className="grid grid-cols-2 gap-6">
+          <motion.div
+            className="grid grid-cols-2 gap-6"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="glass rounded-2xl p-8 border border-accent-lightgrey hover:border-text-primary transition-all"
+                variants={itemVariants}
+                className="glass rounded-sm p-8 border border-accent-yellow/20"
               >
-                <div className="text-4xl md:text-5xl font-grotesk font-bold text-accent-darkgrey mb-2">
+                <div className="text-4xl md:text-5xl font-grotesk font-light text-accent-yellow mb-2">
                   <AnimatedCounter
                     target={stat.number}
                     suffix={stat.suffix}
                   />
                 </div>
-                <p className="text-text-muted text-sm">{stat.label}</p>
+                <p className="text-text-muted text-sm font-light">{stat.label}</p>
               </motion.div>
             ))}
           </motion.div>

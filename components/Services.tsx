@@ -65,10 +65,7 @@ export default function Services() {
   }
 
   return (
-    <section id="services" className="py-20 md:py-32 px-4 bg-primary relative">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-accent-lightgrey/20 to-transparent opacity-30" />
-
+    <section className="py-24 md:py-32 px-4 bg-primary relative">
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section header */}
         <motion.div
@@ -78,14 +75,12 @@ export default function Services() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-5xl md:text-7xl font-grotesk font-bold mb-4 tracking-tighter text-text-primary">
+          <h2 className="text-5xl md:text-6xl font-grotesk font-light mb-4 tracking-tight">
             WHAT WE
             <br />
-            <span className="bg-gradient-to-r from-accent-darkgrey to-accent-grey bg-clip-text text-transparent">
-              BUILD
-            </span>
+            <span className="text-accent-yellow">BUILD</span>
           </h2>
-          <p className="text-xl text-text-muted">Every service designed to create momentum.</p>
+          <p className="text-lg text-text-muted font-light">Every service designed to create momentum.</p>
         </motion.div>
 
         {/* Horizontal scrolling cards */}
@@ -105,22 +100,22 @@ export default function Services() {
               onClick={() => setExpandedId(expandedId === service.id ? null : service.id)}
             >
               <motion.div
-                className={`h-64 rounded-2xl glass p-8 cursor-pointer transition-all duration-300 flex flex-col justify-between group ${
+                className={`h-64 rounded-sm glass p-8 cursor-pointer transition-all duration-300 flex flex-col justify-between group ${
                   expandedId === service.id
-                    ? 'ring-2 ring-text-primary bg-white glow-dark'
-                    : 'hover:bg-white'
+                    ? 'ring-2 ring-accent-yellow bg-accent-yellow/5'
+                    : 'hover:bg-accent-yellow/3'
                 }`}
                 whileHover={{ y: -8 }}
               >
                 <div>
-                  <span className="text-sm font-grotesk text-accent-grey font-bold">{service.id}</span>
-                  <h3 className="text-3xl font-grotesk font-bold mt-4 text-text-primary group-hover:text-accent-darkgrey transition-colors">
+                  <span className="text-sm font-grotesk text-accent-yellow font-light">{service.id}</span>
+                  <h3 className="text-3xl font-grotesk font-light mt-4 text-text-primary group-hover:text-accent-yellow transition-colors">
                     {service.title}
                   </h3>
                 </div>
 
                 <motion.p
-                  className="text-text-muted text-sm leading-relaxed"
+                  className="text-text-muted text-sm leading-relaxed font-light"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: expandedId === service.id ? 1 : 0.7 }}
                 >
@@ -132,7 +127,7 @@ export default function Services() {
         </motion.div>
 
         {/* Scroll hint */}
-        <p className="text-center text-text-muted text-sm mt-8">
+        <p className="text-center text-text-muted text-sm mt-8 font-light">
           ← Scroll to explore all services →
         </p>
       </div>

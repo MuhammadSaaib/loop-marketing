@@ -12,14 +12,14 @@ export default function Footer() {
   ]
 
   const socials = [
-    { icon: Twitter, href: 'https://twitter.com' },
-    { icon: Linkedin, href: 'https://linkedin.com' },
-    { icon: Github, href: 'https://github.com' },
-    { icon: Mail, href: 'mailto:contact@loopmarketing.com' },
+    { icon: Twitter, href: '#' },
+    { icon: Linkedin, href: '#' },
+    { icon: Github, href: '#' },
+    { icon: Mail, href: '#' },
   ]
 
   return (
-    <footer className="bg-secondary border-t border-accent-lightgrey py-12">
+    <footer className="bg-primary border-t border-accent-yellow/10 py-12">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
@@ -28,10 +28,10 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <div className="text-3xl font-grotesk font-bold bg-gradient-to-r from-accent-darkgrey to-accent-grey bg-clip-text text-transparent">
+            <div className="text-3xl font-grotesk font-light text-accent-yellow">
               LOOP
             </div>
-            <p className="text-text-muted text-sm mt-4">Growth systems for modern brands.</p>
+            <p className="text-text-muted text-sm mt-4 font-light">Growth systems for modern brands.</p>
           </motion.div>
 
           {/* Links */}
@@ -41,13 +41,13 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            <h4 className="font-grotesk font-bold text-text-primary mb-4">Navigation</h4>
+            <h4 className="font-grotesk font-light text-text-primary mb-4">Navigation</h4>
             <ul className="space-y-2">
               {links.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-text-muted hover:text-text-primary transition-colors"
+                    className="text-text-muted hover:text-accent-yellow transition-colors text-sm font-light"
                   >
                     {link.label}
                   </a>
@@ -63,7 +63,7 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <h4 className="font-grotesk font-bold text-text-primary mb-4">Connect</h4>
+            <h4 className="font-grotesk font-light text-text-primary mb-4">Connect</h4>
             <div className="flex gap-4">
               {socials.map((social, index) => {
                 const Icon = social.icon
@@ -71,9 +71,7 @@ export default function Footer() {
                   <a
                     key={index}
                     href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full glass flex items-center justify-center text-text-primary hover:text-white hover:bg-accent-darkgrey hover:border-accent-darkgrey transition-all border border-accent-lightgrey"
+                    className="w-10 h-10 rounded-sm glass flex items-center justify-center text-accent-yellow hover:text-white hover:border-accent-yellow transition-all border border-accent-yellow/20"
                   >
                     <Icon size={18} />
                   </a>
@@ -84,13 +82,13 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-accent-lightgrey pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-text-muted text-sm">
+        <div className="border-t border-accent-yellow/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-text-muted text-sm font-light">
           <p>&copy; 2024 LOOP MARKETING. All rights reserved.</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-text-primary transition-colors">
+            <a href="#" className="hover:text-accent-yellow transition-colors">
               Privacy
             </a>
-            <a href="#" className="hover:text-text-primary transition-colors">
+            <a href="#" className="hover:text-accent-yellow transition-colors">
               Terms
             </a>
           </div>

@@ -16,7 +16,7 @@ export default function Process() {
   const [expandedIndex, setExpandedIndex] = useState(0)
 
   return (
-    <section id="process" className="py-20 md:py-32 px-4 bg-primary relative">
+    <section className="py-24 md:py-32 px-4 bg-primary relative">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
@@ -24,16 +24,14 @@ export default function Process() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
         >
-          <h2 className="text-5xl md:text-7xl font-grotesk font-bold tracking-tighter mb-4 text-text-primary">
+          <h2 className="text-5xl md:text-6xl font-grotesk font-light tracking-tight mb-4">
             OUR
             <br />
-            <span className="bg-gradient-to-r from-accent-grey to-accent-darkgrey bg-clip-text text-transparent">
-              LOOP
-            </span>
+            <span className="text-accent-yellow">PROCESS</span>
           </h2>
-          <p className="text-xl text-text-muted">How we build sustainable growth for your brand.</p>
+          <p className="text-lg text-text-muted font-light">How we build sustainable growth for your brand.</p>
         </motion.div>
 
         {/* Timeline */}
@@ -44,30 +42,30 @@ export default function Process() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: index * 0.08 }}
               className="relative"
             >
               {/* Connector line */}
               {index < stages.length - 1 && (
-                <div className="absolute left-8 top-20 w-1 h-12 bg-gradient-to-b from-accent-grey to-transparent opacity-20" />
+                <div className="absolute left-8 top-20 w-0.5 h-12 bg-accent-yellow/20" />
               )}
 
               <motion.button
                 onClick={() => setExpandedIndex(expandedIndex === index ? -1 : index)}
-                className={`w-full text-left p-6 rounded-xl transition-all duration-300 group ${
+                className={`w-full text-left p-6 rounded-sm transition-all duration-300 group ${
                   expandedIndex === index
-                    ? 'glass bg-white border border-text-primary glow-dark'
-                    : 'glass hover:bg-white border border-accent-lightgrey'
+                    ? 'glass bg-accent-yellow/5 border border-accent-yellow/40'
+                    : 'glass border border-accent-yellow/10'
                 }`}
                 whileHover={{ x: 8 }}
               >
                 <div className="flex items-start gap-6">
                   {/* Number circle */}
                   <div className="flex-shrink-0">
-                    <div className={`w-16 h-16 rounded-full flex items-center justify-center font-grotesk font-bold text-lg transition-all ${
+                    <div className={`w-16 h-16 rounded-sm flex items-center justify-center font-grotesk font-light text-lg transition-all ${
                       expandedIndex === index
-                        ? 'bg-text-primary text-white'
-                        : 'bg-accent-lightgrey text-text-primary'
+                        ? 'bg-accent-yellow text-primary'
+                        : 'bg-accent-yellow/10 text-accent-yellow'
                     }`}>
                       {index + 1}
                     </div>
@@ -75,11 +73,11 @@ export default function Process() {
 
                   {/* Content */}
                   <div className="flex-1">
-                    <h3 className="text-2xl font-grotesk font-bold text-text-primary mb-2 group-hover:text-accent-darkgrey transition-colors">
+                    <h3 className="text-2xl font-grotesk font-light text-text-primary mb-2 group-hover:text-accent-yellow transition-colors">
                       {stage.title}
                     </h3>
                     <motion.p
-                      className="text-text-muted"
+                      className="text-text-muted font-light"
                       initial={{ opacity: 0, height: 0 }}
                       animate={{
                         opacity: expandedIndex === index ? 1 : 0.7,
@@ -91,7 +89,7 @@ export default function Process() {
                   </div>
 
                   {/* Arrow */}
-                  <div className="text-text-primary text-2xl group-hover:translate-x-2 transition-transform">
+                  <div className="text-accent-yellow text-2xl group-hover:translate-x-2 transition-transform font-light">
                     {index < stages.length - 1 ? '↓' : '✓'}
                   </div>
                 </div>

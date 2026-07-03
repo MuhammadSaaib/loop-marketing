@@ -8,45 +8,67 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#F5F5F5',
-        secondary: '#FFFFFF',
+        primary: '#1a1819',
+        secondary: '#2a2829',
         accent: {
-          grey: '#6B7280',
-          darkgrey: '#1F2937',
-          lightgrey: '#E5E7EB',
+          yellow: '#FFD700',
+          gold: '#FFC107',
           white: '#FFFFFF',
+          gray: '#E8E8E8',
         },
         text: {
-          primary: '#1F2937',
-          muted: '#6B7280',
+          primary: '#FFFFFF',
+          muted: '#B0B0B0',
         },
       },
       fontFamily: {
+        thin: ['Thin', 'sans-serif'],
+        light: ['Light', 'sans-serif'],
         grotesk: ['Space Grotesk', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
       },
+      fontSize: {
+        xs: ['12px', { lineHeight: '16px' }],
+        sm: ['14px', { lineHeight: '20px' }],
+        base: ['16px', { lineHeight: '24px' }],
+        lg: ['18px', { lineHeight: '28px' }],
+        xl: ['20px', { lineHeight: '28px' }],
+        '2xl': ['24px', { lineHeight: '32px' }],
+        '3xl': ['30px', { lineHeight: '36px' }],
+        '4xl': ['36px', { lineHeight: '40px' }],
+        '5xl': ['48px', { lineHeight: '1.2' }],
+        '6xl': ['60px', { lineHeight: '1.2' }],
+        '7xl': ['72px', { lineHeight: '1.2' }],
+      },
+      fontWeight: {
+        thin: '100',
+        light: '300',
+        normal: '400',
+        medium: '500',
+        semibold: '600',
+        bold: '700',
+      },
       backgroundImage: {
-        'gradient-hero': 'linear-gradient(135deg, #E5E7EB, #D1D5DB, #F3F4F6)',
-        'gradient-cta': 'linear-gradient(90deg, #1F2937, #374151)',
-        'gradient-hover': 'linear-gradient(135deg, #6B7280, #4B5563)',
+        'gradient-dark': 'linear-gradient(135deg, #1a1819, #2a2829)',
+        'gradient-accent': 'linear-gradient(90deg, #FFD700, #FFC107)',
       },
       animation: {
         'fade-up': 'fadeUp 0.8s ease-out forwards',
-        'glow': 'glow 3s ease-in-out infinite',
-        'particle-float': 'particleFloat 6s ease-in-out infinite',
+        'fade-in': 'fadeIn 1s ease-out forwards',
+        'subtle-glow': 'subtleGlow 3s ease-in-out infinite',
       },
       keyframes: {
         fadeUp: {
           from: { opacity: '0', transform: 'translateY(30px)' },
           to: { opacity: '1', transform: 'translateY(0)' },
         },
-        glow: {
-          '0%, 100%': { textShadow: '0 0 20px rgba(31, 41, 55, 0.3)' },
-          '50%': { textShadow: '0 0 40px rgba(31, 41, 55, 0.5)' },
+        fadeIn: {
+          from: { opacity: '0' },
+          to: { opacity: '1' },
         },
-        particleFloat: {
-          '0%, 100%': { transform: 'translateY(0px) translateX(0px)' },
-          '50%': { transform: 'translateY(-30px) translateX(20px)' },
+        subtleGlow: {
+          '0%, 100%': { textShadow: '0 0 10px rgba(255, 215, 0, 0.2)' },
+          '50%': { textShadow: '0 0 20px rgba(255, 215, 0, 0.4)' },
         },
       },
     },
