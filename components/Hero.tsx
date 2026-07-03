@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
+import LoopLogo from '@/components/LoopLogo'
 
 export default function Hero() {
   const [scrollY, setScrollY] = useState(0)
@@ -50,6 +51,11 @@ export default function Hero() {
           initial="hidden"
           animate="visible"
         >
+          {/* Logo */}
+          <motion.div variants={itemVariants} className="mb-8 flex justify-center">
+            <LoopLogo className="w-16 h-16 text-accent-yellow" />
+          </motion.div>
+
           {/* Main heading */}
           <motion.div variants={itemVariants}>
             <h1 className="text-6xl md:text-8xl font-grotesk font-light mb-8 tracking-tight">

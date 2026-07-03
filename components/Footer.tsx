@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Mail, Github, Linkedin, Twitter } from 'lucide-react'
+import LoopLogo from './LoopLogo'
 
 export default function Footer() {
   const links = [
@@ -28,8 +29,9 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <div className="text-3xl font-grotesk font-light text-accent-yellow">
-              LOOP
+            <div className="flex items-center gap-2 mb-4">
+              <LoopLogo className="w-6 h-6 text-accent-yellow" />
+              <span className="text-2xl font-grotesk font-light text-accent-yellow">LOOP</span>
             </div>
             <p className="text-text-muted text-sm mt-4 font-light">Growth systems for modern brands.</p>
           </motion.div>
@@ -96,4 +98,3 @@ export default function Footer() {
       </div>
     </footer>
   )
-}
